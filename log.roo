@@ -1,0 +1,75 @@
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-02-26 12:57:29
+project --topLevelPackage com.josesa.springrootest --projectName SpringRooTest --java 6 --packaging WAR
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2014-02-26 12:57:32
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-02-26 12:59:45
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2014-02-26 12:59:54
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-02-26 13:01:03
+persistence setup --database HYPERSONIC_IN_MEMORY --provider HIBERNATE 
+entity jpa --class com.josesa.springrootest.entity.Person
+entity jpa --class com.josesa.springrootest.entity.Project
+field string --fieldName name
+field reference --fieldName owner --type ~.entity.Person
+entity jpa --class ~.entity.Person
+field string --fieldName name
+field date --fieldName birthDate --type java.util.Date
+web mvc setup 
+web mvc scaffold --class ~.web.PersonController
+entity jpa --class ~.entity.Project
+web mvc scaffold --class ~.web.ProjectController
+field string --fieldName name
+field reference --fieldName owner --type ~.entity.Person
+jpa setup --database HYPERSONIC_PERSISTENT --provider HIBERNATE 
+repository jpa --interface ~.repository.ProjectRepository
+entity jpa --class ~.entity.Person
+repository jpa --interface ~.repository.PersonRepository
+entity jpa --class ~.entity.Person --activeRecord false
+entity jpa --class ~.entity.Project --activeRecord false
+service all --interfacePackage com.josesa.springrootest.service
+field string --fieldName name
+field reference --fieldName owner --type ~.entity.Person
+entity jpa --class ~.entity.Person
+field string --fieldName name
+field date --fieldName birthDate --type java.util.Date
+web mvc json all 
+web mvc json add --jsonObject ~.entity.Person
+web mvc json add --jsonObject ~.web.ProjectController
+controller class --class ~.web.ProjectController
+controller scaffold --class ~.entity.Project
+web mvc scaffold --class ~.entity.Project 
+help 
+help web mvc setup
+hint
+json all 
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2014-02-26 13:32:00
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-02-26 13:32:10
+web mvc json all 
+web mvc controller --class ~.web.HomeController
+logging setup --level DEBUG 
+logging setup --level TRACE 
+logging setup --level INFO 
+test integration --entity ~.entity.Person
+test integration --entity ~.entity.Project
+perform tests
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2014-02-26 15:33:07
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-02-26 15:57:50
+security setup
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2014-02-26 17:18:59
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-08 09:07:14
+web mvc scaffold --backingType ~.entity.Person --class ~.entity.Person
+web mvc scaffold --backingType ~.entity.Person --class PersonController
+web mvc scaffold --backingType ~.entity.Project --class ProjectController
+web mvc scaffold --backingType ~.entity.Project --class ProjectController
+web mvc controller --class PersonController 
+web mvc controller --class ~web.PersonController 
+web mvc controller --class ~web.PersonController 
+web mvc controller --class ~web.ProjectController 
+web mvc scaffold --backingType ~.entity.Project --class ~.web.ProjectController
+web mvc scaffold --backingType ~.entity.Person --class ~.web.PersonController
+web mvc scaffold --backingType ~.entity.Person --class ~.web.PersonController
+web mvc scaffold --backingType ~.entity.Person --class ~.web.PersonController
+web mvc scaffold --backingType ~.entity.Person --class ~.web.PersonController
+web mvc scaffold --backingType ~.entity.Project --class ~.web.ProjectController
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2014-05-08 09:28:06
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-08 09:30:39
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2014-05-08 09:32:39
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-08 09:35:19
