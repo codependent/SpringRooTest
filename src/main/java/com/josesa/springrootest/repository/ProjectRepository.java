@@ -30,6 +30,7 @@ public interface ProjectRepository extends JpaSpecificationExecutor<Project>{
 	public class ProjectSpecification{
 		public static Specification<Project> isNameInList(final String ... names) {
 			return new Specification<Project>() {
+				@SuppressWarnings("unchecked")
 				public Predicate toPredicate(Root<Project> root,
 						CriteriaQuery<?> query, CriteriaBuilder builder) {
 					Join<Project, Person> people = (Join<Project, Person>)root.fetch(Project_.owner, JoinType.LEFT);
@@ -40,6 +41,7 @@ public interface ProjectRepository extends JpaSpecificationExecutor<Project>{
 		
 		public static Specification<Project> fullProjectInfo(final Long projectId) {
 			return new Specification<Project>() {
+				@SuppressWarnings({ "unused", "unchecked" })
 				public Predicate toPredicate(Root<Project> root,
 						CriteriaQuery<?> query, CriteriaBuilder builder) {
 					//Joins para evitar subqueries

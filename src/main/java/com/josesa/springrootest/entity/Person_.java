@@ -9,6 +9,8 @@ import javax.persistence.metamodel.StaticMetamodel;
 @StaticMetamodel(Person.class)
 public abstract class Person_ {
 
+	public static volatile SingularAttribute<Person, Long> id;
+	public static volatile SingularAttribute<Person, Project> project;
 	public static volatile SingularAttribute<Person, String> name;
 	public static volatile SingularAttribute<Person, Date> birthDate;
 
