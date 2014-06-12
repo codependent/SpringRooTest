@@ -2,9 +2,10 @@
 <div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
-    <form:update id="fu_com_josesa_springrootest_entity_Person" modelAttribute="person" path="/people" versionField="Version" z="sHNbq6uDKm0V0ycSn8nLr0HRPcc=">
+    <form:update id="fu_com_josesa_springrootest_entity_Person" idField="id_" modelAttribute="person" path="/people" versionField="Version" z="bzlOIRT9CEzeNq6XNMwvQDJEXiI=">
+        <field:input field="id" id="c_com_josesa_springrootest_entity_Person_id" validationMessageCode="field_invalid_integer" z="bsERTq35p3atpTN75HLeT/DcR/M="/>
         <field:input field="name" id="c_com_josesa_springrootest_entity_Person_name" z="2A87VMQ1ugHGkR9QhXDcjdn8U1w="/>
         <field:datetime dateTimePattern="${person_birthdate_date_format}" field="birthDate" id="c_com_josesa_springrootest_entity_Person_birthDate" z="0oN7umFy5jCK3Rgk1hvFxOC7yrc="/>
-        <field:select field="project" id="c_com_josesa_springrootest_entity_Person_project" itemValue="id" items="${projects}" path="/projects" z="CiozPMFJzZ2ixCi6xzGpCkpJRaA="/>
+        <field:select field="project" id="c_com_josesa_springrootest_entity_Person_project" itemValue="id_" items="${projects}" path="/projects" z="C1K6AXYFSp+y3vFzEPNhMp5isN0="/>
     </form:update>
 </div>

@@ -74,3 +74,4 @@ web mvc scaffold --backingType ~.entity.Project --class ~.web.ProjectController
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2014-05-08 09:32:39
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-08 09:35:19
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-08 10:36:00
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-06-12 15:42:23

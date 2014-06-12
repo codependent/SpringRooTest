@@ -23,6 +23,7 @@ import org.springframework.roo.addon.tostring.RooToString;
 @SuppressWarnings("serial")
 public class Project implements Serializable {
 
+	private Integer id;
     /**
      */
     private String name;

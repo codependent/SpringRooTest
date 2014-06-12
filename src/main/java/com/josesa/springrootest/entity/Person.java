@@ -25,6 +25,7 @@ import org.springframework.roo.addon.tostring.RooToString;
 @SuppressWarnings("serial")
 public class Person implements Serializable{
 
+	private Integer id;
     /**
      */
     private String name;

@@ -9,7 +9,7 @@ import javax.persistence.metamodel.StaticMetamodel;
 @StaticMetamodel(Project.class)
 public abstract class Project_ {
 
-	public static volatile SingularAttribute<Project, Long> id;
+	public static volatile SingularAttribute<Project, Integer> id;
 	public static volatile SingularAttribute<Project, String> name;
 	public static volatile SingularAttribute<Project, Person> owner;
 	public static volatile ListAttribute<Project, Person> participants;

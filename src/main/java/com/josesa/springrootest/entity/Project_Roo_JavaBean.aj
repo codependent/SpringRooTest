@@ -9,6 +9,14 @@ import java.util.List;
 
 privileged aspect Project_Roo_JavaBean {
     
+    public Integer Project.getId() {
+        return this.id;
+    }
+    
+    public void Project.setId(Integer id) {
+        this.id = id;
+    }
+    
     public String Project.getName() {
         return this.name;
     }

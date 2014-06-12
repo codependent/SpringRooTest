@@ -9,6 +9,14 @@ import java.util.Date;
 
 privileged aspect Person_Roo_JavaBean {
     
+    public Integer Person.getId() {
+        return this.id;
+    }
+    
+    public void Person.setId(Integer id) {
+        this.id = id;
+    }
+    
     public String Person.getName() {
         return this.name;
     }

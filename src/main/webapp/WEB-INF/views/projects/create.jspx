@@ -4,8 +4,9 @@
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_com_josesa_springrootest_entity_Project" modelAttribute="project" path="/projects" render="${empty dependencies}" z="SleixslDpXryt3TY8BsQwhn3Avk=">
         <field:input field="name" id="c_com_josesa_springrootest_entity_Project_name" z="FNXsn/e0W6/2bDlcCPCExR7UbZ8="/>
-        <field:select field="owner" id="c_com_josesa_springrootest_entity_Project_owner" itemValue="id" items="${people}" path="/people" z="QvhyHIVs5n3/yPlmkR2zy4Kn6QU="/>
+        <field:select field="owner" id="c_com_josesa_springrootest_entity_Project_owner" itemValue="id_" items="${people}" path="/people" z="ezxiuhXml/uRUB2x2UyVVVhJdYY="/>
         <field:simple field="participants" id="c_com_josesa_springrootest_entity_Project_participants" messageCode="entity_reference_not_managed" messageCodeAttribute="Person" z="lYnyDDaWtFiQVxptqP1OMzEHUXo="/>
+        <field:input field="id" id="c_com_josesa_springrootest_entity_Project_id" validationMessageCode="field_invalid_integer" z="XKNnBHiqrcuJomN3MMhVW/z13tE="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_josesa_springrootest_entity_Project" render="${not empty dependencies}" z="7i/TG5ZS6oH7wUh6mq38QLYdBIU="/>
 </div>

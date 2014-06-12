@@ -47,11 +47,11 @@ privileged aspect PersonIntegrationTest_Roo_IntegrationTest {
     public void PersonIntegrationTest.testFindPerson() {
         Person obj = dod.getRandomPerson();
         Assert.assertNotNull("Data on demand for 'Person' failed to initialize correctly", obj);
-        Long id = obj.getId();
+        Long id = obj.getId_();
         Assert.assertNotNull("Data on demand for 'Person' failed to provide an identifier", id);
         obj = personService.findPerson(id);
         Assert.assertNotNull("Find method for 'Person' illegally returned null for id '" + id + "'", obj);
-        Assert.assertEquals("Find method for 'Person' returned the incorrect identifier", id, obj.getId());
+        Assert.assertEquals("Find method for 'Person' returned the incorrect identifier", id, obj.getId_());
     }
     
     @Test
@@ -80,7 +80,7 @@ privileged aspect PersonIntegrationTest_Roo_IntegrationTest {
     public void PersonIntegrationTest.testFlush() {
         Person obj = dod.getRandomPerson();
         Assert.assertNotNull("Data on demand for 'Person' failed to initialize correctly", obj);
-        Long id = obj.getId();
+        Long id = obj.getId_();
         Assert.assertNotNull("Data on demand for 'Person' failed to provide an identifier", id);
         obj = personService.findPerson(id);
         Assert.assertNotNull("Find method for 'Person' illegally returned null for id '" + id + "'", obj);
@@ -94,14 +94,14 @@ privileged aspect PersonIntegrationTest_Roo_IntegrationTest {
     public void PersonIntegrationTest.testUpdatePersonUpdate() {
         Person obj = dod.getRandomPerson();
         Assert.assertNotNull("Data on demand for 'Person' failed to initialize correctly", obj);
-        Long id = obj.getId();
+        Long id = obj.getId_();
         Assert.assertNotNull("Data on demand for 'Person' failed to provide an identifier", id);
         obj = personService.findPerson(id);
         boolean modified =  dod.modifyPerson(obj);
         Integer currentVersion = obj.getVersion();
         Person merged = personService.updatePerson(obj);
         personRepository.flush();
-        Assert.assertEquals("Identifier of merged object not the same as identifier of original object", merged.getId(), id);
+        Assert.assertEquals("Identifier of merged object not the same as identifier of original object", merged.getId_(), id);
         Assert.assertTrue("Version for 'Person' failed to increment on merge and flush directive", (currentVersion != null && obj.getVersion() > currentVersion) || !modified);
     }
     
@@ -110,7 +110,7 @@ privileged aspect PersonIntegrationTest_Roo_IntegrationTest {
         Assert.assertNotNull("Data on demand for 'Person' failed to initialize correctly", dod.getRandomPerson());
         Person obj = dod.getNewTransientPerson(Integer.MAX_VALUE);
         Assert.assertNotNull("Data on demand for 'Person' failed to provide a new transient entity", obj);
-        Assert.assertNull("Expected 'Person' identifier to be null", obj.getId());
+        Assert.assertNull("Expected 'Person' identifier to be null", obj.getId_());
         try {
             personService.savePerson(obj);
         } catch (final ConstraintViolationException e) {
@@ -122,14 +122,14 @@ privileged aspect PersonIntegrationTest_Roo_IntegrationTest {
             throw new IllegalStateException(msg.toString(), e);
         }
         personRepository.flush();
-        Assert.assertNotNull("Expected 'Person' identifier to no longer be null", obj.getId());
+        Assert.assertNotNull("Expected 'Person' identifier to no longer be null", obj.getId_());
     }
     
     @Test
     public void PersonIntegrationTest.testDeletePerson() {
         Person obj = dod.getRandomPerson();
         Assert.assertNotNull("Data on demand for 'Person' failed to initialize correctly", obj);
-        Long id = obj.getId();
+        Long id = obj.getId_();
         Assert.assertNotNull("Data on demand for 'Person' failed to provide an identifier", id);
         obj = personService.findPerson(id);
         personService.deletePerson(obj);

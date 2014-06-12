@@ -5,7 +5,8 @@
     <form:create id="fc_com_josesa_springrootest_entity_Person" modelAttribute="person" path="/people" render="${empty dependencies}" z="s5U0lhtYa7CJOSsLVyprMA2VBF8=">
         <field:input field="name" id="c_com_josesa_springrootest_entity_Person_name" z="2A87VMQ1ugHGkR9QhXDcjdn8U1w="/>
         <field:datetime dateTimePattern="${person_birthdate_date_format}" field="birthDate" id="c_com_josesa_springrootest_entity_Person_birthDate" z="0oN7umFy5jCK3Rgk1hvFxOC7yrc="/>
-        <field:select field="project" id="c_com_josesa_springrootest_entity_Person_project" itemValue="id" items="${projects}" path="/projects" z="CiozPMFJzZ2ixCi6xzGpCkpJRaA="/>
+        <field:select field="project" id="c_com_josesa_springrootest_entity_Person_project" itemValue="id_" items="${projects}" path="/projects" z="C1K6AXYFSp+y3vFzEPNhMp5isN0="/>
+        <field:input field="id" id="c_com_josesa_springrootest_entity_Person_id" validationMessageCode="field_invalid_integer" z="bsERTq35p3atpTN75HLeT/DcR/M="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_josesa_springrootest_entity_Person" render="${not empty dependencies}" z="Ds3J4pkUtLZaiTKsJwLZuyHNHDI="/>
 </div>

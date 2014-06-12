@@ -26,7 +26,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<Person, String> ApplicationConversionServiceFactoryBean.getPersonToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.josesa.springrootest.entity.Person, java.lang.String>() {
             public String convert(Person person) {
-                return new StringBuilder().append(person.getName()).append(' ').append(person.getBirthDate()).toString();
+                return new StringBuilder().append(person.getId()).append(' ').append(person.getName()).append(' ').append(person.getBirthDate()).toString();
             }
         };
     }
@@ -50,7 +50,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<Project, String> ApplicationConversionServiceFactoryBean.getProjectToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.josesa.springrootest.entity.Project, java.lang.String>() {
             public String convert(Project project) {
-                return new StringBuilder().append(project.getName()).toString();
+                return new StringBuilder().append(project.getId()).append(' ').append(project.getName()).toString();
             }
         };
     }

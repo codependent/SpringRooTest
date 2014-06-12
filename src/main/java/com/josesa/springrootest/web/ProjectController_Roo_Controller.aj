@@ -36,7 +36,7 @@ privileged aspect ProjectController_Roo_Controller {
         }
         uiModel.asMap().clear();
         projectService.saveProject(project);
-        return "redirect:/projects/" + encodeUrlPathSegment(project.getId().toString(), httpServletRequest);
+        return "redirect:/projects/" + encodeUrlPathSegment(project.getId_().toString(), httpServletRequest);
     }
     
     @RequestMapping(params = "form", produces = "text/html")
@@ -45,10 +45,10 @@ privileged aspect ProjectController_Roo_Controller {
         return "projects/create";
     }
     
-    @RequestMapping(value = "/{id}", produces = "text/html")
-    public String ProjectController.show(@PathVariable("id") Long id, Model uiModel) {
-        uiModel.addAttribute("project", projectService.findProject(id));
-        uiModel.addAttribute("itemId", id);
+    @RequestMapping(value = "/{id_}", produces = "text/html")
+    public String ProjectController.show(@PathVariable("id_") Long id_, Model uiModel) {
+        uiModel.addAttribute("project", projectService.findProject(id_));
+        uiModel.addAttribute("itemId", id_);
         return "projects/show";
     }
     
@@ -74,18 +74,18 @@ privileged aspect ProjectController_Roo_Controller {
         }
         uiModel.asMap().clear();
         projectService.updateProject(project);
-        return "redirect:/projects/" + encodeUrlPathSegment(project.getId().toString(), httpServletRequest);
+        return "redirect:/projects/" + encodeUrlPathSegment(project.getId_().toString(), httpServletRequest);
     }
     
-    @RequestMapping(value = "/{id}", params = "form", produces = "text/html")
-    public String ProjectController.updateForm(@PathVariable("id") Long id, Model uiModel) {
-        populateEditForm(uiModel, projectService.findProject(id));
+    @RequestMapping(value = "/{id_}", params = "form", produces = "text/html")
+    public String ProjectController.updateForm(@PathVariable("id_") Long id_, Model uiModel) {
+        populateEditForm(uiModel, projectService.findProject(id_));
         return "projects/update";
     }
     
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "text/html")
-    public String ProjectController.delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
-        Project project = projectService.findProject(id);
+    @RequestMapping(value = "/{id_}", method = RequestMethod.DELETE, produces = "text/html")
+    public String ProjectController.delete(@PathVariable("id_") Long id_, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
+        Project project = projectService.findProject(id_);
         projectService.deleteProject(project);
         uiModel.asMap().clear();
         uiModel.addAttribute("page", (page == null) ? "1" : page.toString());

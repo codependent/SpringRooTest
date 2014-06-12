@@ -41,6 +41,7 @@ privileged aspect PersonDataOnDemand_Roo_DataOnDemand {
     public Person PersonDataOnDemand.getNewTransientPerson(int index) {
         Person obj = new Person();
         setBirthDate(obj, index);
+        setId(obj, index);
         setName(obj, index);
         return obj;
     }
@@ -48,6 +49,11 @@ privileged aspect PersonDataOnDemand_Roo_DataOnDemand {
     public void PersonDataOnDemand.setBirthDate(Person obj, int index) {
         Date birthDate = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), Calendar.getInstance().get(Calendar.DAY_OF_MONTH), Calendar.getInstance().get(Calendar.HOUR_OF_DAY), Calendar.getInstance().get(Calendar.MINUTE), Calendar.getInstance().get(Calendar.SECOND) + new Double(Math.random() * 1000).intValue()).getTime();
         obj.setBirthDate(birthDate);
+    }
+    
+    public void PersonDataOnDemand.setId(Person obj, int index) {
+        Integer id = new Integer(index);
+        obj.setId(id);
     }
     
     public void PersonDataOnDemand.setName(Person obj, int index) {
@@ -64,14 +70,14 @@ privileged aspect PersonDataOnDemand_Roo_DataOnDemand {
             index = data.size() - 1;
         }
         Person obj = data.get(index);
-        Long id = obj.getId();
+        Long id = obj.getId_();
         return personService.findPerson(id);
     }
     
     public Person PersonDataOnDemand.getRandomPerson() {
         init();
         Person obj = data.get(rnd.nextInt(data.size()));
-        Long id = obj.getId();
+        Long id = obj.getId_();
         return personService.findPerson(id);
     }
     

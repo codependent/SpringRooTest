@@ -5,5 +5,6 @@
     <page:show id="ps_com_josesa_springrootest_entity_Project" object="${project}" path="/projects" z="6hIlR4lY5yQ4C41hkSKAKsYGCfU=">
         <field:display field="name" id="s_com_josesa_springrootest_entity_Project_name" object="${project}" z="PMduMnyPIioZLK2rz4i2OJou7/Q="/>
         <field:display field="owner" id="s_com_josesa_springrootest_entity_Project_owner" object="${project}" z="Wfa8ZH+nmz8FEphopvQUxUIMzU8="/>
+        <field:display field="id" id="s_com_josesa_springrootest_entity_Project_id" object="${project}" z="seziHsE4a2uotEKg+pZLTzEVZ/Y="/>
     </page:show>
 </div>

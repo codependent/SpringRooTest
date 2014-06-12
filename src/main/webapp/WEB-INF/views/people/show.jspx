@@ -6,5 +6,6 @@
         <field:display field="name" id="s_com_josesa_springrootest_entity_Person_name" object="${person}" z="dsMvczp4hNvHoQZz1WkotNbpCv0="/>
         <field:display date="true" dateTimePattern="${person_birthdate_date_format}" field="birthDate" id="s_com_josesa_springrootest_entity_Person_birthDate" object="${person}" z="ol6ZChPiyOdBBQGiOVPp7XQUcoc="/>
         <field:display field="project" id="s_com_josesa_springrootest_entity_Person_project" object="${person}" z="uLjtpLr5W8HBzbnWcL9BcHBYNT8="/>
+        <field:display field="id" id="s_com_josesa_springrootest_entity_Person_id" object="${person}" z="H6eDmXkxNjwGzvonlZ/dJ3cxsjM="/>
     </page:show>
 </div>

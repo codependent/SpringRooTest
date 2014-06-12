@@ -38,7 +38,7 @@ privileged aspect PersonController_Roo_Controller {
         }
         uiModel.asMap().clear();
         personService.savePerson(person);
-        return "redirect:/people/" + encodeUrlPathSegment(person.getId().toString(), httpServletRequest);
+        return "redirect:/people/" + encodeUrlPathSegment(person.getId_().toString(), httpServletRequest);
     }
     
     @RequestMapping(params = "form", produces = "text/html")
@@ -47,11 +47,11 @@ privileged aspect PersonController_Roo_Controller {
         return "people/create";
     }
     
-    @RequestMapping(value = "/{id}", produces = "text/html")
-    public String PersonController.show(@PathVariable("id") Long id, Model uiModel) {
+    @RequestMapping(value = "/{id_}", produces = "text/html")
+    public String PersonController.show(@PathVariable("id_") Long id_, Model uiModel) {
         addDateTimeFormatPatterns(uiModel);
-        uiModel.addAttribute("person", personService.findPerson(id));
-        uiModel.addAttribute("itemId", id);
+        uiModel.addAttribute("person", personService.findPerson(id_));
+        uiModel.addAttribute("itemId", id_);
         return "people/show";
     }
     
@@ -78,18 +78,18 @@ privileged aspect PersonController_Roo_Controller {
         }
         uiModel.asMap().clear();
         personService.updatePerson(person);
-        return "redirect:/people/" + encodeUrlPathSegment(person.getId().toString(), httpServletRequest);
+        return "redirect:/people/" + encodeUrlPathSegment(person.getId_().toString(), httpServletRequest);
     }
     
-    @RequestMapping(value = "/{id}", params = "form", produces = "text/html")
-    public String PersonController.updateForm(@PathVariable("id") Long id, Model uiModel) {
-        populateEditForm(uiModel, personService.findPerson(id));
+    @RequestMapping(value = "/{id_}", params = "form", produces = "text/html")
+    public String PersonController.updateForm(@PathVariable("id_") Long id_, Model uiModel) {
+        populateEditForm(uiModel, personService.findPerson(id_));
         return "people/update";
     }
     
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "text/html")
-    public String PersonController.delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
-        Person person = personService.findPerson(id);
+    @RequestMapping(value = "/{id_}", method = RequestMethod.DELETE, produces = "text/html")
+    public String PersonController.delete(@PathVariable("id_") Long id_, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
+        Person person = personService.findPerson(id_);
         personService.deletePerson(person);
         uiModel.asMap().clear();
         uiModel.addAttribute("page", (page == null) ? "1" : page.toString());

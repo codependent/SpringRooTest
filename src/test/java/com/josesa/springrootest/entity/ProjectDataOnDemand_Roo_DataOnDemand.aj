@@ -37,8 +37,14 @@ privileged aspect ProjectDataOnDemand_Roo_DataOnDemand {
     
     public Project ProjectDataOnDemand.getNewTransientProject(int index) {
         Project obj = new Project();
+        setId(obj, index);
         setName(obj, index);
         return obj;
+    }
+    
+    public void ProjectDataOnDemand.setId(Project obj, int index) {
+        Integer id = new Integer(index);
+        obj.setId(id);
     }
     
     public void ProjectDataOnDemand.setName(Project obj, int index) {
@@ -55,14 +61,14 @@ privileged aspect ProjectDataOnDemand_Roo_DataOnDemand {
             index = data.size() - 1;
         }
         Project obj = data.get(index);
-        Long id = obj.getId();
+        Long id = obj.getId_();
         return projectService.findProject(id);
     }
     
     public Project ProjectDataOnDemand.getRandomProject() {
         init();
         Project obj = data.get(rnd.nextInt(data.size()));
-        Long id = obj.getId();
+        Long id = obj.getId_();
         return projectService.findProject(id);
     }
     

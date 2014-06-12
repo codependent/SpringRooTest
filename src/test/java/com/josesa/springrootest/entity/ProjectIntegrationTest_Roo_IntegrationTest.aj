@@ -47,11 +47,11 @@ privileged aspect ProjectIntegrationTest_Roo_IntegrationTest {
     public void ProjectIntegrationTest.testFindProject() {
         Project obj = dod.getRandomProject();
         Assert.assertNotNull("Data on demand for 'Project' failed to initialize correctly", obj);
-        Long id = obj.getId();
+        Long id = obj.getId_();
         Assert.assertNotNull("Data on demand for 'Project' failed to provide an identifier", id);
         obj = projectService.findProject(id);
         Assert.assertNotNull("Find method for 'Project' illegally returned null for id '" + id + "'", obj);
-        Assert.assertEquals("Find method for 'Project' returned the incorrect identifier", id, obj.getId());
+        Assert.assertEquals("Find method for 'Project' returned the incorrect identifier", id, obj.getId_());
     }
     
     @Test
@@ -80,7 +80,7 @@ privileged aspect ProjectIntegrationTest_Roo_IntegrationTest {
     public void ProjectIntegrationTest.testFlush() {
         Project obj = dod.getRandomProject();
         Assert.assertNotNull("Data on demand for 'Project' failed to initialize correctly", obj);
-        Long id = obj.getId();
+        Long id = obj.getId_();
         Assert.assertNotNull("Data on demand for 'Project' failed to provide an identifier", id);
         obj = projectService.findProject(id);
         Assert.assertNotNull("Find method for 'Project' illegally returned null for id '" + id + "'", obj);
@@ -94,14 +94,14 @@ privileged aspect ProjectIntegrationTest_Roo_IntegrationTest {
     public void ProjectIntegrationTest.testUpdateProjectUpdate() {
         Project obj = dod.getRandomProject();
         Assert.assertNotNull("Data on demand for 'Project' failed to initialize correctly", obj);
-        Long id = obj.getId();
+        Long id = obj.getId_();
         Assert.assertNotNull("Data on demand for 'Project' failed to provide an identifier", id);
         obj = projectService.findProject(id);
         boolean modified =  dod.modifyProject(obj);
         Integer currentVersion = obj.getVersion();
         Project merged = projectService.updateProject(obj);
         projectRepository.flush();
-        Assert.assertEquals("Identifier of merged object not the same as identifier of original object", merged.getId(), id);
+        Assert.assertEquals("Identifier of merged object not the same as identifier of original object", merged.getId_(), id);
         Assert.assertTrue("Version for 'Project' failed to increment on merge and flush directive", (currentVersion != null && obj.getVersion() > currentVersion) || !modified);
     }
     
@@ -110,7 +110,7 @@ privileged aspect ProjectIntegrationTest_Roo_IntegrationTest {
         Assert.assertNotNull("Data on demand for 'Project' failed to initialize correctly", dod.getRandomProject());
         Project obj = dod.getNewTransientProject(Integer.MAX_VALUE);
         Assert.assertNotNull("Data on demand for 'Project' failed to provide a new transient entity", obj);
-        Assert.assertNull("Expected 'Project' identifier to be null", obj.getId());
+        Assert.assertNull("Expected 'Project' identifier to be null", obj.getId_());
         try {
             projectService.saveProject(obj);
         } catch (final ConstraintViolationException e) {
@@ -122,14 +122,14 @@ privileged aspect ProjectIntegrationTest_Roo_IntegrationTest {
             throw new IllegalStateException(msg.toString(), e);
         }
         projectRepository.flush();
-        Assert.assertNotNull("Expected 'Project' identifier to no longer be null", obj.getId());
+        Assert.assertNotNull("Expected 'Project' identifier to no longer be null", obj.getId_());
     }
     
     @Test
     public void ProjectIntegrationTest.testDeleteProject() {
         Project obj = dod.getRandomProject();
         Assert.assertNotNull("Data on demand for 'Project' failed to initialize correctly", obj);
-        Long id = obj.getId();
+        Long id = obj.getId_();
         Assert.assertNotNull("Data on demand for 'Project' failed to provide an identifier", id);
         obj = projectService.findProject(id);
         projectService.deleteProject(obj);
