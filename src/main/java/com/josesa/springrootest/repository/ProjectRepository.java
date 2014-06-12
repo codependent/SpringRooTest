@@ -27,7 +27,6 @@ public interface ProjectRepository extends JpaSpecificationExecutor<Project>{
 	 */
 	List<Project> findAll(Specification<Project> spec);
 	
-	
 	public class ProjectSpecification{
 		public static Specification<Project> isNameInList(final String ... names) {
 			return new Specification<Project>() {
